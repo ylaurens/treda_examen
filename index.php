@@ -1,36 +1,30 @@
 <?php
 /**
  * @var \App\View\AppView $this
- * @var \App\Model\Entity\Product[]|\Cake\Collection\CollectionInterface $products
+ * @var \App\Model\Entity\StoresProduct[]|\Cake\Collection\CollectionInterface $storesProducts
  */
 ?>
-<div class="products index content">
-    <?= $this->Html->link(__('New Product'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Products') ?></h3>
+<div class="storesProducts index content">
+    <?= $this->Html->link(__('New Stores Product'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <h3><?= __('Stores Products') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('sku') ?></th>
-                    <th><?= $this->Paginator->sort('nombre') ?></th>
-                    <th><?= $this->Paginator->sort('valor') ?></th>
-                    <th><?= $this->Paginator->sort('imagen') ?></th>
+                    <th><?= $this->Paginator->sort('id_stores') ?></th>
+                    <th><?= $this->Paginator->sort('id_products') ?></th>
                     <th class="actions"><?= __('Actions') ?></th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($products as $product): ?>
+                <?php foreach ($storesProducts as $storesProduct): ?>
                 <tr>
-                    <td><?= $this->Number->format($product->id) ?></td>
-                    <td><?= h($product->sku) ?></td>
-                    <td><?= h($product->nombre) ?></td>
-                    <td><?= $this->Number->format($product->valor) ?></td>
-                    <td><?= h($product->imagen) ?></td>
+                    <td><?= $this->Number->format($storesProduct->id_stores) ?></td>
+                    <td><?= $this->Number->format($storesProduct->id_products) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $product->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $product->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $product->id], ['confirm' => __('Are you sure you want to delete # {0}?', $product->id)]) ?>
+                        <?= $this->Html->link(__('View'), ['action' => 'view', $storesProduct->id_products]) ?>
+                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $storesProduct->id_products]) ?>
+                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $storesProduct->id_products], ['confirm' => __('Are you sure you want to delete # {0}?', $storesProduct->id_products)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
